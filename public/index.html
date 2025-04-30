@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江西兴达校具报修平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>江西兴达校具报修平台</h1>
+        
+        <form id="repairForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="school">学校 *</label>
+                <input type="text" id="school" name="school" required>
+                <div class="field-error" id="school-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="building">楼栋 *</label>
+                <input type="text" id="building" name="building" required>
+                <div class="field-error" id="building-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="room">房间号 *</label>
+                <input type="text" id="room" name="room" required>
+                <div class="field-error" id="room-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">故障描述 *</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+                <div id="descriptionCounter" class="char-counter"></div>
+                <div class="field-error" id="description-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="photo">故障照片（最多5张）*</label>
+                <input type="file" id="photo" name="photo" accept="image/*" multiple required>
+                <div class="image-preview-container" id="imagePreview"></div>
+                <div class="field-error" id="photo-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">联系电话（选填）</label>
+                <input type="tel" id="phone" name="phone" placeholder="请输入手机号码">
+                <div class="field-error" id="phone-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="appointmentTime">预约维修时间 *</label>
+                <div class="datetime-input-wrapper" onclick="document.getElementById('appointmentTime').showPicker()">
+                    <input type="datetime-local" id="appointmentTime" name="appointmentTime" required>
+                </div>
+                <div class="field-error" id="appointmentTime-error"></div>
+            </div>
+            
+            <div class="submit-container">
+                <button type="submit" class="submit-btn">提交报修</button>
+                <div id="messageContainer"></div>
+            </div>
+        </form>
+    </div>
+    
+    <div id="modalContainer" class="modal">
+        <div class="modal-content">
+            <div id="modalMessage"></div>
+            <button id="modalClose" class="modal-btn">确定</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

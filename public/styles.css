@@ -1,0 +1,386 @@
+/* 基础样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* 表单样式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="datetime-local"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* 时间选择器包装器 */
+.datetime-input-wrapper {
+    position: relative;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.datetime-input-wrapper:hover {
+    border-color: #3498db;
+}
+
+/* 时间选择器输入框 */
+.datetime-input-wrapper input[type="datetime-local"] {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    color: #333;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .datetime-input-wrapper {
+        background-color: #333;
+        border-color: #444;
+    }
+    
+    .datetime-input-wrapper input[type="datetime-local"] {
+        color: #f5f5f5;
+    }
+}
+
+/* 文件上传表单项 */
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    input[type="file"] {
+        background-color: #333;
+        border-color: #444;
+    }
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.submit-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* 字段错误提示 */
+.field-error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* 字数统计 */
+.char-counter {
+    color: #666;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* 图片预览 */
+#imagePreview {
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 100px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#imagePreview:not(:empty) {
+    display: flex;
+}
+
+#imagePreview img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 4px;
+}
+
+/* 模态框 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#modalMessage {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.modal-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.modal-btn:hover {
+    background-color: #2980b9;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+        border-radius: 4px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="datetime-local"],
+    textarea {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    input[type="datetime-local"] {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    input[type="file"] {
+        padding: 10px 0;
+    }
+
+    #imagePreview {
+        min-height: 80px;
+        padding: 8px;
+    }
+
+    #imagePreview img {
+        max-height: 150px;
+    }
+
+    .image-preview-wrapper {
+        height: 150px;
+    }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #f5f5f5;
+    }
+
+    .container {
+        background-color: #2d2d2d;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="datetime-local"],
+    textarea {
+        background-color: #333;
+        color: #f5f5f5;
+        border-color: #444;
+    }
+
+    label {
+        color: #f5f5f5;
+    }
+
+    #imagePreview {
+        background-color: #333;
+    }
+
+    .modal-content {
+        background-color: #2d2d2d;
+        color: #f5f5f5;
+    }
+}
+
+/* 图片预览容器 */
+.image-preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* 单个图片预览包装器 */
+.image-preview-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-preview-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 删除按钮 */
+.delete-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #e74c3c;
+    padding: 0;
+    line-height: 1;
+}
+
+.delete-image:hover {
+    background-color: #fff;
+    color: #c0392b;
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+    .image-preview-container {
+        background-color: #2d2d2d;
+    }
+    
+    .image-preview-wrapper {
+        background-color: #333;
+    }
+    
+    .delete-image {
+        background-color: rgba(51, 51, 51, 0.9);
+        color: #ff6b6b;
+    }
+    
+    .delete-image:hover {
+        background-color: #444;
+        color: #ff8787;
+    }
+} 
