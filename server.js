@@ -50,9 +50,9 @@ const transporter = nodemailer.createTransport({
         user: process.env.EMAIL_FROM,
         pass: process.env.EMAIL_PASS
     },
-    tls: {
-        rejectUnauthorized: false
-    },
+    // tls: {
+    //     rejectUnauthorized: false
+    // },
 });
 
 // 添加验证函数
