@@ -14,6 +14,7 @@ function validateForm() {
     const phone = form.phone.value.trim();
     const appointmentTime = form.appointmentTime.value;
     const photo = form.photo.files[0];
+    const campus = form.campus.value.trim();
 
     let firstErrorField = null; // 记录第一个错误的字段
 
@@ -22,6 +23,13 @@ function validateForm() {
         showFieldError('school', '学校名称必须在1-50个字符之间');
         errors.push('学校名称必须在1-50个字符之间');
         firstErrorField = firstErrorField || 'school';
+    }
+
+    // 校区验证（选填）
+    if (campus && (campus.length < 1 || campus.length > 20)) {
+        showFieldError('campus', '校区信息必须在1-20个字符之间');
+        errors.push('校区信息必须在1-20个字符之间');
+        firstErrorField = firstErrorField || 'campus';
     }
 
     // 楼栋验证
@@ -69,9 +77,9 @@ function validateForm() {
 
     // 照片验证
     const previewContainer = document.getElementById('imagePreview');
-    if (previewContainer.children.length === 0) {
-        showFieldError('photo', '请至少上传一张故障照片');
-        errors.push('请至少上传一张故障照片');
+    if (previewContainer.children.length > 5) {
+        showFieldError('photo', '最多只能上传5张图片');
+        errors.push('最多只能上传5张图片');
         firstErrorField = firstErrorField || 'photo';
     }
 

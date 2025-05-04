@@ -24,8 +24,13 @@ body {
 h1 {
     text-align: center;
     color: #2c3e50;
-    margin-bottom: 30px;
     font-size: 28px;
+    margin-bottom: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 /* 表单样式 */
@@ -235,7 +240,10 @@ textarea:focus {
 
     h1 {
         font-size: 24px;
-        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
     }
 
     .form-group {

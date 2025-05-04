@@ -68,6 +68,12 @@ function validateRepairForm(data) {
         errors.push('学校名称必须在1-50个字符之间');
     }
     
+    // 校区验证 (选填，1-20个字符)
+    if (data.campus && (typeof data.campus !== 'string' || 
+        data.campus.length < 1 || data.campus.length > 20)) {
+        errors.push('校区信息必须在1-20个字符之间');
+    }
+    
     // 楼栋验证 (1-20个字符)
     if (!data.building || typeof data.building !== 'string' || 
         data.building.length < 1 || data.building.length > 20) {
@@ -171,6 +177,7 @@ app.post('/api/submit-repair', function(req, res) {
                 html: `
                     <h2>报修信息</h2>
                     <p><strong>学校：</strong>${sanitizeInput(school)}</p>
+                    <p><strong>校区：</strong>${sanitizeInput(req.body.campus || '未提供')}</p>
                     <p><strong>楼栋：</strong>${sanitizeInput(building)}</p>
                     <p><strong>房间号：</strong>${sanitizeInput(room)}</p>
                     <p><strong>故障描述：</strong>${sanitizeInput(description)}</p>
